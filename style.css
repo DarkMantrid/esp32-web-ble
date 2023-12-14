@@ -62,3 +62,10 @@ button {
 .reading {
     font-size: 1.8rem;
 }
+
+/* For mobile devices, ensure content is centered */
+@media (max-width: 767px) {
+    .card-grid {
+        grid-template-columns: 1fr; /* Set a single column layout for smaller screens */
+    }
+}
