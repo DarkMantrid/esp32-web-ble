@@ -5,11 +5,11 @@ html {
 }
 h1 {
     font-size: 1.8rem;
-    color: white;
+    color: #000000;
 }
 .topnav {
     overflow: hidden;
-    background-color: #0A1128;
+    background-color: #FFD700;
 }
 body {
     margin: 0;
