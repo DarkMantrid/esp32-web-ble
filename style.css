@@ -6,12 +6,15 @@ html {
 h1 {
     font-size: 1.8rem;
     color: #000000;
+    font-family: 'Roboto', sans-serif; /* Use Roboto font */
 }
 .topnav {
     overflow: hidden;
     background-color: #FFD700;
 }
+/* Add Roboto font */
 body {
+    font-family: 'Roboto', sans-serif; /* Use Roboto font */
     margin: 0;
 }
 .content {
@@ -73,3 +76,5 @@ button {
         grid-template-columns: 1fr; /* Set a single column layout for smaller screens */
     }
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
