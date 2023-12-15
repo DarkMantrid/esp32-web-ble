@@ -34,6 +34,10 @@
                 <button id="offButton" class="offButton">OFF</button>
                 <p class="gray-label">Last value sent: <span id="valueSent"></span></p>
             </div>
+            <div class="card">
+                <button id="checkBinaryDataButton" class="connectButton">Check Binary Data</button>
+                <p id="binaryDataStatus" class="gray-label">Binary Data Status: <span id="statusContainer"></span></p>
+            </div>
         </div>
     </div>
 </body>
@@ -47,6 +51,9 @@
     const latestValueSent = document.getElementById('valueSent');
     const bleStateContainer = document.getElementById('bleState');
     const timestampContainer = document.getElementById('timestamp');
+    const checkBinaryDataButton = document.getElementById('checkBinaryDataButton');
+    const binaryDataStatus = document.getElementById('binaryDataStatus');
+    const statusContainer = document.getElementById('statusContainer');
 
     //Define BLE Device Specs
     var deviceName ='ESP32';
@@ -58,6 +65,23 @@
     var bleServer;
     var bleServiceFound;
     var sensorCharacteristicFound;
+
+    checkBinaryDataButton.addEventListener('click', () => {
+    fetch('/checkBinaryData') // Replace '/checkBinaryData' with your server endpoint
+        .then(response => response.json())
+        .then(data => {
+            if (data.matches) {
+                statusContainer.innerText = "Required data matches!";
+            } else {
+                statusContainer.innerText = "Required data does not match!";
+            }
+        })
+        .catch(error => {
+            console.error('Error checking binary data:', error);
+            statusContainer.innerText = "Error checking binary data";
+        });
+    });
+
 
     // Connect Button (search for BLE Devices only if BLE is available)
     connectButton.addEventListener('click', (event) => {
