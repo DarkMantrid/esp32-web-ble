@@ -25,10 +25,7 @@ h1 {
 .topnav {
     overflow: hidden;
     background-color: #FFD700;
-    text-align: center; /* Aligns text within the container */
     padding: 10px 20px; /* Adjust padding as needed */
-    display: flex; /* Use flexbox */
-    justify-content: center; /* Center-aligns items */
     align-items: center; /* Aligns items vertically */
 }
 
