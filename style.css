@@ -13,15 +13,20 @@ h1 {
     overflow: hidden;
     background-color: #FFD700;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-between; /* Pushes elements apart, aligns text and logo to opposite ends */
+    align-items: center; /* Aligns items vertically */
+}
+
+h1 {
+    margin: 0; /* Reset margin to eliminate default spacing around the text */
 }
 
 .logo {
     max-width: 100px; /* Adjust the maximum width as needed */
     height: auto;
-    margin-right: 20px; /* Adjust the margin to create space between the logo and the text */
+    margin-right: 20px; /* Adjust the margin to create space between the logo and the edge */
 }
+
 /* Add Roboto font */
 body {
     font-family: 'Roboto', sans-serif; /* Use Roboto font */
