@@ -2,6 +2,7 @@
 html, body {
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 /* Set up font */
@@ -11,33 +12,33 @@ html {
 }
 
 /* Header styles */
-h1 {
-    font-size: 1.8rem;
-    color: #000000;
-    font-family: 'Roboto', 'Italia', sans-serif;
-    margin: 0;
-    display: inline-block; /* Ensure text takes only necessary space */
-    vertical-align: middle;
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FFD700;
+    padding: 10px 20px; /* Adjust padding as needed */
 }
 
 /* Top navigation styles */
 .topnav {
     display: flex;
     align-items: center;
-    justify-content: center;
-    background-color: #FFD700;
-    padding: 10px 20px; /* Adjust padding as needed */
+}
+
+h1 {
+    font-size: 1.8rem;
+    color: #000000;
+    font-family: 'Roboto', 'Italia', sans-serif;
+    margin: 0;
 }
 
 /* Logo styles */
 .logo {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
     margin-right: 20px; /* Adjust the margin for spacing */
 }
 
-.logo img {
+.logo-img {
     max-width: 100px; /* Adjust the maximum width as needed */
     height: auto;
 }
