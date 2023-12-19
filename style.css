@@ -28,19 +28,11 @@ h1 {
 }
 
 /* Logo styles */
-.topnav {
-    display: flex;
-    align-items: center;
-    flex: 1; /* Take remaining space */
-    justify-content: center; /* Center the text within the remaining space */
-}
-
 .logo-img {
     max-width: 100px; /* Adjust the maximum width as needed */
     height: auto;
     margin-left: auto; /* Push the logo to the right */
 }
-
 
 /* Content styles */
 body {
