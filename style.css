@@ -32,7 +32,7 @@ body {
 .card {
     background-color: white;
     box-shadow: 2px 2px 12px 1px rgba(140,140,140,.5);
-    border-radius: 10px; /* Add rounded corners to the cards */
+    border-radius: 15px; /* Add rounded corners to the cards */
     padding: 15px; /* Optional: Padding for the cards */
     margin: 10px; /* Optional: Margin for the cards */
 }
