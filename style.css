@@ -20,12 +20,6 @@ html {
     align-items: center;
 }
 
-/* Top navigation styles */
-.topnav {
-    display: flex;
-    align-items: center;
-}
-
 h1 {
     font-size: 1.8rem;
     color: #000000;
@@ -35,7 +29,9 @@ h1 {
 
 /* Logo styles */
 .logo {
-    margin-left: auto; /* Pushes the logo to the right */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .logo-img {
