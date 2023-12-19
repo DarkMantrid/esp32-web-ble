@@ -24,8 +24,8 @@ h1 {
     overflow: hidden;
     background-color: #FFD700;
     display: flex;
-    justify-content: space-between; /* Pushes elements apart, aligns text and logo to opposite ends */
-    align-items: center; /* Aligns items vertically */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Align items vertically */
     padding: 10px 20px; /* Adjust padding as needed */
 }
 
