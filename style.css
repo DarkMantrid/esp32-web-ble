@@ -31,6 +31,8 @@ h1 {
 .topnav {
     display: flex;
     align-items: center;
+    flex: 1; /* Take remaining space */
+    justify-content: center; /* Center the text within the remaining space */
 }
 
 .logo-img {
@@ -38,6 +40,7 @@ h1 {
     height: auto;
     margin-left: auto; /* Push the logo to the right */
 }
+
 
 /* Content styles */
 body {
