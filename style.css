@@ -1,43 +1,51 @@
+/* Reset default margin and padding */
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set up font and center text */
 html {
-    font-family: 'Roboto', 'Italia', sans-serif; /* Use Roboto font as primary, fallback to Italia, then sans-serif */
+    font-family: 'Roboto', 'Italia', sans-serif;
     display: inline-block;
     text-align: center;
 }
 
+/* Header styles */
 h1 {
     font-size: 1.8rem;
     color: #000000;
-    font-family: 'Roboto', 'Italia', sans-serif; /* Use Roboto font as primary, fallback to Italia, then sans-serif */
+    font-family: 'Roboto', 'Italia', sans-serif;
+    margin: 0;
 }
+
+/* Top navigation styles */
 .topnav {
     overflow: hidden;
     background-color: #FFD700;
     display: flex;
-    justify-content: space-between; /* Pushes elements apart, aligns text and logo to opposite ends */
-    align-items: center; /* Aligns items vertically */
-    padding: 0 20px; /* Add padding to the sides for better spacing */
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px; /* Adjust padding as needed */
 }
 
-h1 {
-    margin: 0; /* Reset margin to eliminate default spacing around the text */
-    flex: 1; /* Allow the title to take up remaining space */
-    text-align: center; /* Center-align the title text */
-}
-
+/* Logo styles */
 .logo {
     max-width: 100px; /* Adjust the maximum width as needed */
     height: auto;
-    margin-left: auto; /* Pushes the logo to the right by taking up available space */
 }
 
-/* Add Roboto font */
+/* Content styles */
 body {
-    font-family: 'Roboto', sans-serif; /* Use Roboto font */
+    font-family: 'Roboto', sans-serif;
     margin: 0;
 }
+
 .content {
     padding: 50px;
 }
+
 .card-grid {
     max-width: 800px;
     margin: 0 auto;
@@ -46,12 +54,13 @@ body {
     grid-gap: 2rem;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
+
 .card {
     background-color: white;
-    box-shadow: 2px 2px 12px 1px rgba(140,140,140,.5);
-    border-radius: 15px; /* Add rounded corners to the cards */
-    padding: 15px; /* Optional: Padding for the cards */
-    margin: 10px; /* Optional: Margin for the cards */
+    box-shadow: 2px 2px 12px 1px rgba(140, 140, 140, 0.5);
+    border-radius: 15px;
+    padding: 15px;
+    margin: 10px;
 }
 
 button {
@@ -63,19 +72,19 @@ button {
     border-radius: 4px;
 }
 
-.onButton{
+.onButton {
     background-color: #1b8a94;
 }
 
-.offButton{
+.offButton {
     background-color: #5f6c6d;
 }
 
-.connectButton{
+.connectButton {
     background-color: #24af37;
 }
 
-.disconnectButton{
+.disconnectButton {
     background-color: #d13a30;
 }
 
