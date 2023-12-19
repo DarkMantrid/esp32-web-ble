@@ -15,13 +15,15 @@ html {
 .header {
     background-color: #FFD700;
     padding: 10px 20px; /* Adjust padding as needed */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* Top navigation styles */
 .topnav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
 }
 
 h1 {
@@ -33,13 +35,14 @@ h1 {
 
 /* Logo styles */
 .logo {
-    margin-left: 20px; /* Adjust the margin for spacing */
+    margin-left: auto; /* Pushes the logo to the right */
 }
 
 .logo-img {
     max-width: 100px; /* Adjust the maximum width as needed */
     height: auto;
 }
+
 /* Content styles */
 body {
     font-family: 'Roboto', sans-serif;
