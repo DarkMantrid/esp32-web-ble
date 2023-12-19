@@ -17,15 +17,14 @@ h1 {
     color: #000000;
     font-family: 'Roboto', 'Italia', sans-serif;
     margin: 0;
-    flex: 1; /* Allow the title to take up remaining space */
+    display: inline-block; /* Ensure text takes only necessary space */
 }
 
 /* Top navigation styles */
 .topnav {
     overflow: hidden;
     background-color: #FFD700;
-    display: flex;
-    align-items: center; /* Align items vertically */
+    text-align: center; /* Aligns text within the container */
     padding: 10px 20px; /* Adjust padding as needed */
 }
 
@@ -33,9 +32,8 @@ h1 {
 .logo {
     max-width: 100px; /* Adjust the maximum width as needed */
     height: auto;
-    margin-left: auto; /* Pushes the logo to the right */
+    float: right; /* Aligns the logo to the right */
 }
-
 /* Content styles */
 body {
     font-family: 'Roboto', sans-serif;
