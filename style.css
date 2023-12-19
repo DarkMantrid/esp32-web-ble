@@ -18,6 +18,7 @@ h1 {
     font-family: 'Roboto', 'Italia', sans-serif;
     margin: 0;
     display: inline-block; /* Ensure text takes only necessary space */
+    align-items: center;
 }
 
 /* Top navigation styles */
