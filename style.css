@@ -15,16 +15,19 @@ h1 {
     display: flex;
     justify-content: space-between; /* Pushes elements apart, aligns text and logo to opposite ends */
     align-items: center; /* Aligns items vertically */
+    padding: 0 20px; /* Add padding to the sides for better spacing */
 }
 
 h1 {
     margin: 0; /* Reset margin to eliminate default spacing around the text */
+    flex: 1; /* Allow the title to take up remaining space */
+    text-align: center; /* Center-align the title text */
 }
 
 .logo {
     max-width: 100px; /* Adjust the maximum width as needed */
     height: auto;
-    margin-right: 20px; /* Adjust the margin to create space between the logo and the edge */
+    margin-left: auto; /* Pushes the logo to the right by taking up available space */
 }
 
 /* Add Roboto font */
