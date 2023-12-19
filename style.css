@@ -17,6 +17,7 @@ h1 {
     color: #000000;
     font-family: 'Roboto', 'Italia', sans-serif;
     margin: 0;
+    display: inline-block; /* Ensure text takes only necessary space */
 }
 
 /* Top navigation styles */
@@ -25,15 +26,16 @@ h1 {
     background-color: #FFD700;
     text-align: center; /* Aligns text within the container */
     padding: 10px 20px; /* Adjust padding as needed */
-    display: flex;
-    align-items: center;
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center-aligns items */
+    align-items: center; /* Aligns items vertically */
 }
 
 /* Logo styles */
 .logo {
     max-width: 100px; /* Adjust the maximum width as needed */
     height: auto;
-    float: right; /* Align the logo to the right */
+    margin-left: auto; /* Push the logo to the right */
 }
 /* Content styles */
 body {
