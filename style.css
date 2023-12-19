@@ -35,6 +35,7 @@ h1 {
 .logo {
     max-width: 100px; /* Adjust the maximum width as needed */
     height: auto;
+    margin-left: auto; /* Push the logo to the right */
 }
 /* Content styles */
 body {
