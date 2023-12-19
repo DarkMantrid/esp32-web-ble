@@ -2,12 +2,12 @@
 html, body {
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 /* Set up font */
 html {
     font-family: 'Roboto', 'Italia', sans-serif;
-    display: inline-block;
     text-align: center;
 }
 
@@ -18,21 +18,31 @@ h1 {
     font-family: 'Roboto', 'Italia', sans-serif;
     margin: 0;
     display: inline-block; /* Ensure text takes only necessary space */
-    align-items: center;
+    vertical-align: middle;
 }
 
 /* Top navigation styles */
 .topnav {
-    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Make the topnav fill the height */
     background-color: #FFD700;
     padding: 10px 20px; /* Adjust padding as needed */
 }
 
 /* Logo styles */
 .logo {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%; /* Make the logo fill the height */
+    margin-right: 20px; /* Adjust the margin for spacing */
+}
+
+.logo img {
     max-width: 100px; /* Adjust the maximum width as needed */
     height: auto;
-    align-items: flex-end;
 }
 /* Content styles */
 body {
