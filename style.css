@@ -4,7 +4,7 @@ html, body {
     padding: 0;
 }
 
-/* Set up font and center text */
+/* Set up font */
 html {
     font-family: 'Roboto', 'Italia', sans-serif;
     display: inline-block;
@@ -33,6 +33,7 @@ h1 {
 .logo {
     max-width: 100px; /* Adjust the maximum width as needed */
     height: auto;
+    margin-left: auto; /* Pushes the logo to the right */
 }
 
 /* Content styles */
