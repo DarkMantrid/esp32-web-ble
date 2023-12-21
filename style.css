@@ -92,12 +92,6 @@ button {
     background-color: #d13a30;
 }
 
-.checkButton {
-    background-color: #9caf24;
-    /* Add any other necessary styling for the check button */
-    /* Ensure it complements your existing design */
-}
-
 .gray-label {
     color: #bebebe;
     font-size: 1rem;
