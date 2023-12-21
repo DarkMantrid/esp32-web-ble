@@ -60,14 +60,22 @@
 
     //Define BLE Device Specs
     var deviceName ='ESP32';
-    var bleService = '19b10000-e8f2-537e-4f6c-d104768a1214';
-    var ledCharacteristic = '19b10002-e8f2-537e-4f6c-d104768a1214';
-    var sensorCharacteristic= '19b10001-e8f2-537e-4f6c-d104768a1214';
+    var bleService = 'f5232e90-4a79-4f37-ba40-e49e6bee7181';
+    var ledCharacteristic = 'eb15fa33-fa10-49e1-be22-d16edeebc658';
+    var sensorCharacteristic= '6b9ad96f-e873-4b43-9ab1-855ebb222e4f';
 
     //Global Variables to Handle Bluetooth
     var bleServer;
     var bleServiceFound;
     var sensorCharacteristicFound;
+
+
+    // Connect Button (search for BLE Devices only if BLE is available)
+    connectButton.addEventListener('click', (event) => {
+        if (isWebBluetoothEnabled()){
+            connectToDevice();
+        }
+    });
 
     checkBinaryDataButton.addEventListener('click', () => {
     fetch('/checkBinaryData') // Replace '/checkBinaryData' with your server endpoint
@@ -83,14 +91,6 @@
             console.error('Error checking binary data:', error);
             statusContainer.innerText = "Error checking binary data";
         });
-    });
-
-
-    // Connect Button (search for BLE Devices only if BLE is available)
-    connectButton.addEventListener('click', (event) => {
-        if (isWebBluetoothEnabled()){
-            connectToDevice();
-        }
     });
 
     // Disconnect Button
