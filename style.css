@@ -25,11 +25,14 @@ h1 {
     color: #000000;
     font-family: 'Roboto', 'Italia', sans-serif;
     margin: 0;
+    text-align: center; /* Horizontally center align the h1 text */
+    flex: 1; /* Allow the h1 to take up available space */
 }
 
 /* Logo styles */
 .logo {
     margin-left: auto; /* Push the logo to the right */
+    text-align: right; /* Align the logo to the right */
 }
 
 .logo-img {
