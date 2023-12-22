@@ -1,7 +1,9 @@
+<!-- index. html -->
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>SM Web tool</title>
+    <title>Simplifier Manager Web tool</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="favicon.ico">
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -9,7 +11,7 @@
 </head>
 <body>
     <div class="header">
-        <h1>SM Status Info</h1>
+        <h1>Simplifier Manager Status Info</h1>
         <div class="logo">
             <img src="sspn-logo-b.png" alt="Logo" class="logo-img">
         </div>
@@ -24,18 +26,16 @@
                 <p class="gray-label">BLE state: <strong><span id="bleState" style="color:#d13a30;">Disconnected</span></strong></p>
             </div>
         </div>
+    </div>
+    <div class="content">
         <div class="card-grid">
-            <div class="card">
-                <h2>Fetched Value</h2>
-                <p class="reading"><span id="valueContainer">NaN</span></p>
+            <!-- Add the status-card class to the status card -->
+            <div class="card status-card" style="display: none;">
+                <h2>Status</h2>
+                <p class="reading"><span id="statusContainer">Node status: 'test'<br>
+                                                              I/O status: 'test'<br>
+                                                              ERROR code: 'test'</span></p>
                 <p class="gray-label">Last reading: <span id="timestamp"></span></p>
-            </div>
-
-            <div class="card">
-                <h2>Control GPIO</h2>
-                <button id="onButton" class="onButton">ON</button>
-                <button id="offButton" class="offButton">OFF</button>
-                <p class="gray-label">Last value sent: <span id="valueSent"></span></p>
             </div>
         </div>
     </div>
@@ -44,25 +44,19 @@
     // DOM Elements
     const connectButton = document.getElementById('connectBleButton');
     const disconnectButton = document.getElementById('disconnectBleButton');
-    const onButton = document.getElementById('onButton');
-    const offButton = document.getElementById('offButton');
-    const retrievedValue = document.getElementById('valueContainer');
-    const latestValueSent = document.getElementById('valueSent');
     const bleStateContainer = document.getElementById('bleState');
     const timestampContainer = document.getElementById('timestamp');
     const statusContainer = document.getElementById('statusContainer');
 
-    //Define BLE Device Specs
-    var deviceName ='ESP32';
-    var bleService = 'f5232e90-4a79-4f37-ba40-e49e6bee7181';
-    var ledCharacteristic = 'eb15fa33-fa10-49e1-be22-d16edeebc658';
-    var sensorCharacteristic= '6b9ad96f-e873-4b43-9ab1-855ebb222e4f';
+    // Define BLE Device Specs
+    var deviceName ='IDx';
+    var bleService = '08fed9e7-90be-44b5-b02c-91393f6e8988';
+    var sensorCharacteristic = '601d23b8-72c2-4965-90d1-2d8bab04f73a';
+    var statusCharacteristic = '33ebbbaa-9683-45d1-86a3-1ab32dbcdd8a';
 
-    //Global Variables to Handle Bluetooth
+    // Global Variables to Handle Bluetooth
     var bleServer;
-    var bleServiceFound;
     var sensorCharacteristicFound;
-
 
     // Connect Button (search for BLE Devices only if BLE is available)
     connectButton.addEventListener('click', (event) => {
@@ -71,13 +65,8 @@
         }
     });
 
-
     // Disconnect Button
     disconnectButton.addEventListener('click', disconnectDevice);
-
-    // Write to the ESP32 LED Characteristic
-    onButton.addEventListener('click', () => writeOnCharacteristic(1));
-    offButton.addEventListener('click', () => writeOnCharacteristic(0));
 
     // Check if BLE is available in your Browser
     function isWebBluetoothEnabled() {
@@ -110,7 +99,6 @@
             return bleServer.getPrimaryService(bleService);
         })
         .then(service => {
-            bleServiceFound = service;
             console.log("Service discovered:", service.uuid);
             return service.getCharacteristic(sensorCharacteristic);
         })
@@ -126,11 +114,18 @@
             console.log("Read value: ", value);
             const decodedValue = new TextDecoder().decode(value);
             console.log("Decoded value: ", decodedValue);
-            retrievedValue.innerHTML = decodedValue;
+            // Show content of 'Status'
+            statusContainer.innerHTML = `<span>${decodedValue}</span>`;
+            // Display the status card
+            const statusCard = document.querySelector('.status-card');
+            if (statusCard) {
+                statusCard.style.display = 'block';
+            }
         })
         .catch(error => {
-            console.log('Error: ', error);
-        })
+            console.error('Error: ', error);
+            // Ensure there's no error in the process flow
+        });
     }
 
     function onDisconnected(event){
@@ -141,11 +136,28 @@
         connectToDevice();
     }
 
-    function handleCharacteristicChange(event){
+    function handleCharacteristicChange(event) {
         const newValueReceived = new TextDecoder().decode(event.target.value);
         console.log("Characteristic value changed: ", newValueReceived);
-        retrievedValue.innerHTML = newValueReceived;
-        timestampContainer.innerHTML = getDateTime();
+
+        const statusValues = newValueReceived.split(';');
+        const nodeStatus = statusValues[0] || 'N/A';
+        const ioStatus = statusValues[1] || 'N/A';
+        const errorCode = statusValues[2] || 'N/A';
+
+        statusContainer.innerHTML = `
+            Node status: '${nodeStatus}'<br>
+            I/O status: '${ioStatus}'<br>
+            ERROR code: '${errorCode}'
+        `;
+
+        const dateTime = getDateTime();
+        timestampContainer.textContent = `Last reading: ${dateTime}`;
+
+        const statusCard = document.querySelector('.status-card');
+        if (statusCard) {
+            statusCard.style.display = 'block';
+        }
     }
 
     function writeOnCharacteristic(value){
@@ -182,7 +194,6 @@
                         console.log("Device Disconnected");
                         bleStateContainer.innerHTML = "Device Disconnected";
                         bleStateContainer.style.color = "#d13a30";
-
                     })
                     .catch(error => {
                         console.log("An error occurred:", error);
@@ -210,7 +221,5 @@
         return datetime;
     }
 
-
 </script>
-
 </html>
